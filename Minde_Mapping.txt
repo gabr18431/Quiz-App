@@ -1,0 +1,17 @@
+1 - create json object for Question
+2 - start create html markup for Questions
+3 - startQuizApp = async () => {
+        try {
+            const amount = this.getAmount();
+            const categoryId = this.categoryDom.value;
+            const difficulty = this.getDifficulty();
+            const url = `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
+            let { results } = await this.fetchData(url);
+            console.log('r', results);
+            this.quiz = new Quiz(this.quizDom,amount,results)
+            this.toggleElements();
+            } catch (err) {
+                alert(err)
+            }
+        
+    }
